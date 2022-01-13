@@ -12,9 +12,11 @@
     "resize-observer-polyfill": "^1.5.1"
   },
   "scripts": {
-    "start": "node server",
-    "server": "nodemon server",
-    "client": "npm run start --prefix client",
-    "dev": "concurrently \"npm run server\" \"cd client && npm start\""
+    "build": "cd client && npm run build",
+    "install-client": "cd client && npm install",
+    "heroku-postbuild": "npm run install-client && npm run build",
+    "server": "nodemon server.js",
+    "develop": "concurrently --kill-others-on-fail \"npm run server\" \"npm run start --prefix client\"",
+    "start": "concurrently --kill-others-on-fail \"npm run server\" \"npm run start --prefix client\""
   }
 }
