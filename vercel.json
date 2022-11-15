@@ -2,11 +2,11 @@
    "version": 2,
    "builds": [
      {
-       "src": "./server.js",  // path to your server.js file
+       "src": "./server.js",  
        "use": "@vercel/node"
      },
      {
-       "src": "./client/build",    // path to your build folder
+       "src": "./client/build",    
        "use": "@vercel/static"
      }
    ],
