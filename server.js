@@ -36,3 +36,8 @@ app.get('/api/data',(req,res)=>{
   .then(data => res.json(data))
   .catch(err => console.log(err))
 })
+
+app.use(express.static(path.join(__dirname, './client', 'build')));
+  app.get('/*', (req, res) => {
+    res.sendFile(path.join(__dirname, './client', 'build', 'index.html'));
+})
